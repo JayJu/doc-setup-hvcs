@@ -1,4 +1,4 @@
-# OOS \(Office Online Server\) 설치 및 환경구성
+# OOS \(Office Online Server\) 환경설정
 
 1. 설치환경
 
