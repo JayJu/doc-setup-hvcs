@@ -78,6 +78,15 @@
 
 6. Jenkins 설정
 
+   * Jenkins 접속
+
+   * ```
+     http://ip_address_or_domain_name:8080
+     ```
+   * 1
+
+   * 
+
 7. 도커 설치
 
    * 다운로드 및 설치
