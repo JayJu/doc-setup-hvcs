@@ -98,7 +98,7 @@
      ![](/img/1-1-4.jpg)
 
    * "Start using Jenkins"  
-     ![](/img/1-1-5.jpg)
+     ![](/img/1-1-5.jpg)![](/img/1-1-6.jpg)
 
    * 1
 
