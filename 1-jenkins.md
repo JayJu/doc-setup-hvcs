@@ -8,20 +8,34 @@
 
    * 사용자 추가
    * ```
-     useradd jenkins -m -d /home/jenkins
-     passwd jenkins
+     # useradd jenkins -m -d /home/jenkins
+     # passwd jenkins
      ```
    * sudoer 등록
    * ```
-     usermod -aG sudo jenkins
+     # usermod -aG sudo jenkins
      ```
 
-3. Jenkins 설치
+3. Jenkins 설치\(jenkins로 로그인 후 진행\)
+
    * 레파지토리 키 등록
    * ```
-     wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+     $ wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
      ```
-   * 1
+   * sources.list 에 데비안 패키지 레파지토리 추가
+   * ```
+     $ echo deb http://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+     ```
+   * apt-get 업데이트
+   * ```
+     $ sudo apt-get update
+     ```
+   * Jenkins 와 dependencies 설치
+   * ```
+     $ sudo apt-get install jenkins
+     ```
+   * 
+
 4. Jenkins 서비스 시작
 5. 도커 설치
 
