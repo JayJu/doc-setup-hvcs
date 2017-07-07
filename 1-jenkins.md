@@ -83,6 +83,10 @@
    * ```
      http://ip_address_or_domain_name:8080
      ```
+   * Unlock Jenkins
+
+   * 1
+
    * 1
 
    * 
