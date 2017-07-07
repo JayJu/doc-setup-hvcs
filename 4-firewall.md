@@ -1,6 +1,7 @@
-# Firewall 정책
+# 방화벽 정책
 
 1. 기본정책
+
    * 정책 확인
 
    * ```
@@ -18,6 +19,7 @@
    * ```
      # netfilter-persistent reload
      ```
+
 2. 미디어 서버
    * Kurento Media Server Port : 8888
    * ```
@@ -28,7 +30,7 @@
      -A RH-Firewall-1-INPUT -p udp -j ACCEPT
      ```
 3. 어플리케이션 서버
-4.  DB 서버
+4. DB 서버
 
 
 
