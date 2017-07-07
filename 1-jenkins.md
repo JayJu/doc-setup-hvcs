@@ -76,7 +76,7 @@
      $ sudo iptables -L
      ```
 
-6. Jenkins 설정
+6. Jenkins 기본 설정
 
    * Jenkins 접속
 
