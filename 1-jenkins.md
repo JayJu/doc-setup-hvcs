@@ -83,10 +83,11 @@
    * ```
      http://ip_address_or_domain_name:8080
      ```
-   * Unlock Jenkins
+   * 관리자 비번 입력 후 Unlock Jenkins
 
-   * 1
-
+   * ```
+     $ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+     ```
    * 1
 
    * 
