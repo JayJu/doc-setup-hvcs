@@ -34,10 +34,51 @@
    * ```
      $ sudo apt-get install jenkins
      ```
-   * 
 
-4. Jenkins 서비스 시작
-5. 도커 설치
+4. Jenkins 시작
+
+   * systemctl을 사용하여 Jenkins 시작
+
+   * ```
+     $ sudo systemctl start jenkins
+     ```
+   * status 확인
+
+   * ```
+     $ sudo systemctl status jenkins
+      jenkins.service - LSB: Start Jenkins at boot time
+        Loaded: loaded (/etc/init.d/jenkins; bad; vendor preset: enabled)
+        Active: active (exited) since Fri 2017-07-07 09:47:29 KST; 2min 1s ago
+          Docs: man:systemd-sysv-generator(8)
+     ```
+   * 1
+
+5. 방화벽 오픈
+
+   * 방화벽 정책 수정 - 8080포트 추가
+
+   * ```
+     $ sudo vi /etc/iptables/rules.v4
+     ```
+   * rules.v4에 아래 내용 추가 후 저장/닫기
+
+   * ```
+     -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
+     ```
+   * 방화벽 재시작
+
+   * ```
+     $ sudo netfilter-persistent reload
+     ```
+   * 정책확인
+
+   * ```
+     $ sudo iptables -L
+     ```
+
+6. Jenkins 설정
+
+7. 도커 설치
 
    * 다운로드 및 설치
      ```
