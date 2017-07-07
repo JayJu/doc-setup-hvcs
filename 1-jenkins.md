@@ -94,8 +94,11 @@
    * "Install suggested plusins" 선택  
      ![](/img/1-1-2.jpg)
 
-   * 관리자 계정 생성  
+   * 관리자 계정 생성 - 정보 입력 후 "Save and Finish"  
      ![](/img/1-1-4.jpg)
+
+   * "Start using Jenkins"  
+     ![](/img/1-1-5.jpg)
 
    * 1
 
