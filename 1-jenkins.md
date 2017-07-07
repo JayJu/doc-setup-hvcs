@@ -91,63 +91,74 @@
 
      ![](/img/1-1-1.jpg)
 
-* 1. 도커 설치
-* 다운로드 및 설치
+   * "Install suggested plusins" 선택  
+     ![](/img/1-1-2.jpg)
 
-  ```
-  curl -s https://get.docker.com/ | sudo sh
-  ```
+   * 관리자 계정 생성  
 
-* 사용자에 root권한 부여
-  ```
-  sudo usermod -aG docker hvcs
-  ```
-* 권한 적용을 위해 사용자 로그아웃 & 로그인
-* 도커 버전 확인
+   * 1
 
-  ```
-  $ docker version
-  Client:
-   Version:      17.05.0-ce
-   API version:  1.29
-   Go version:   go1.7.5
-   Git commit:   89658be
-   Built:        Thu May  4 22:10:54 2017
-   OS/Arch:      linux/amd64
+   * 
 
-  Server:
-   Version:      17.05.0-ce
-   API version:  1.29 (minimum version 1.12)
-   Go version:   go1.7.5
-   Git commit:   89658be
-   Built:        Thu May  4 22:10:54 2017
-   OS/Arch:      linux/amd64
-   Experimental: false
-  ```
+7. 1. 도커 설치
+8. 다운로드 및 설치
 
-* Jenkins 이미지 받기 및 컨테이너 시작
+   ```
+   curl -s https://get.docker.com/ | sudo sh
+   ```
 
-  ```
-  docker run -p 8080:8080 -p 50000:50000 jenkinsci/jenkins:lts
-  ```
+9. 사용자에 root권한 부여
 
-* Docker File 수정
+   ```
+   sudo usermod -aG docker hvcs
+   ```
 
-  ```
-  docker ps -a
-  docker images
-  docker start/stop 컨테이너이름
-  docker attach 컨테이너이름
-  ```
+10. 권한 적용을 위해 사용자 로그아웃 & 로그인
+11. 도커 버전 확인
 
-* 도커 빌드
+    ```
+    $ docker version
+    Client:
+     Version:      17.05.0-ce
+     API version:  1.29
+     Go version:   go1.7.5
+     Git commit:   89658be
+     Built:        Thu May  4 22:10:54 2017
+     OS/Arch:      linux/amd64
 
-  ```
-  sudo mkdir /var/jenkins_home
-  docker build -t ubuntu-jenkins .
-  ```
+    Server:
+     Version:      17.05.0-ce
+     API version:  1.29 (minimum version 1.12)
+     Go version:   go1.7.5
+     Git commit:   89658be
+     Built:        Thu May  4 22:10:54 2017
+     OS/Arch:      linux/amd64
+     Experimental: false
+    ```
 
-* ㅇㅇ
+12. Jenkins 이미지 받기 및 컨테이너 시작
+
+    ```
+    docker run -p 8080:8080 -p 50000:50000 jenkinsci/jenkins:lts
+    ```
+
+13. Docker File 수정
+
+    ```
+    docker ps -a
+    docker images
+    docker start/stop 컨테이너이름
+    docker attach 컨테이너이름
+    ```
+
+14. 도커 빌드
+
+    ```
+    sudo mkdir /var/jenkins_home
+    docker build -t ubuntu-jenkins .
+    ```
+
+15. ㅇㅇ
 
 
 
