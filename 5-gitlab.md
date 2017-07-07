@@ -1,4 +1,4 @@
-# Gitlab 설치 및 환경구성
+# GitLab 설치 및 환경구성
 
 1. 설치환경
 
@@ -19,14 +19,35 @@
    * /tmp 이동 후 실행
 
    * ```
-     cd /tmp
-     curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
+     $ cd /tmp
+     $ curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
      ```
-   * 1
+   * GitLab 레파지토리 셋업
 
-   * 1
+   * ```
+     $ sudo bash /tmp/script.deb.sh
+     ```
+   * GitLab CE\(Community Edition\) 설치
 
-   * 
+   * ```
+     $ sudo apt-get install gitlab-ce
+     ```
+
+     ![](/img/1-5-1.png)
+
+   * reconfigure 실행
+
+   * ```
+     $ sudo gitlab-ctl reconfigure
+     ```
+   * 서비스 재시작 - root로 진행
+
+   * ```
+     $ gitlab-ctl stop
+     $ gitlab-ctl start
+     $ gitlab-ctl status
+     $ gitlab-ctl tail
+     ```
 
 4. 방화벽 정책 조정
 

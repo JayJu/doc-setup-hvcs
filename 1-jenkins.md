@@ -38,6 +38,13 @@
 
 4. Jenkins 시작
 
+   * 포트변경
+
+   * ```
+     $ sudo vi /etc/default/jenkins
+     // port 부분을 변경.
+     HTTP_PORT=8080 -> HTTP_PORT=9999
+     ```
    * systemctl을 사용하여 Jenkins 시작
 
    * ```
@@ -52,7 +59,6 @@
         Active: active (exited) since Fri 2017-07-07 09:47:29 KST; 2min 1s ago
           Docs: man:systemd-sysv-generator(8)
      ```
-   * 1
 
 5. 방화벽 오픈
 
@@ -64,7 +70,7 @@
    * rules.v4에 아래 내용 추가 후 저장/닫기
 
    * ```
-     -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
+     -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 9000 -j ACCEPT
      ```
    * 방화벽 재시작
 
