@@ -4,7 +4,26 @@
 
    * Ubuntu 16.04.1
 
-2. 도커 설치
+2. 사용자 추가 및 권한 설정
+
+   * 사용자 추가
+   * ```
+     useradd jenkins -m -d /home/jenkins
+     passwd jenkins
+     ```
+   * sudoer 등록
+   * ```
+     usermod -aG sudo jenkins
+     ```
+
+3. Jenkins 설치
+   * 레파지토리 키 등록
+   * ```
+     wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+     ```
+   * 1
+4. Jenkins 서비스 시작
+5. 도커 설치
 
    * 다운로드 및 설치
      ```
@@ -50,7 +69,6 @@
      docker images
      docker start/stop 컨테이너이름
      docker attach 컨테이너이름
-
      ```
 
    * 도커 빌드
