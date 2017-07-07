@@ -1,4 +1,4 @@
-# OOS \(Office Online Server\) 환경설정
+# OOS \(Office Online Server\) 설치 및 환경구성
 
 1. 설치환경
 
@@ -55,6 +55,7 @@
       * 소스로 지정할 폴더 생성
 
    2. 권한설정
+
       * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
 
       * OOS 상의 UNC URL 확인 - “[http://common-web/op/generate.aspx”](http://common-web/op/generate.aspx”) 로 이동 후 UNC Path를 입력하여 URL을 획득

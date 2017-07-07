@@ -1,4 +1,4 @@
-# Kurento Media Server 구성
+# Kurento Media Server 설치 및 환경구성
 
 
 
