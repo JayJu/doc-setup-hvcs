@@ -95,7 +95,15 @@
    * 관리자 프로파일 수정 \(Settings\)  
      ![](/img/1-5-4.png)
 
-   * d
+   * 이메일 업데이트 후 confirmation mail 확인
+
+     * confirmation link 클릭 시 target url 이 localhost 로 나올 경우 서버 ip 재설정하기
+
+   * Account 이름 변경
+
+     * 
+
+   * ㅂ
 
 6. 
 
