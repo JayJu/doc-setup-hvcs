@@ -35,6 +35,12 @@
 
      ![](/img/1-5-1.png)
 
+   * 서버 IP 확인 및 수정
+
+   * ```
+     $ vi /etc/gitlab/gitlab.rb
+     external_url 항목의 서버IP 확인 및 수정
+     ```
    * reconfigure 실행
 
    * ```
