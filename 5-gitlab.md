@@ -51,7 +51,41 @@
 
 4. 방화벽 정책 조정
 
+   * 방화벽 정책 수정 - 80, 8080포트 추가
+
+   * ```
+     $ sudo vi /etc/iptables/rules.v4
+     ```
+
+   * rules.v4 에 아래 내용을 추가 후 저장/닫기
+
+   * ```
+     -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+     -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
+     ```
+
+   * 방화벽 재시작
+
+   * ```
+     $ sudo netfilter-persistent reload
+     ```
+   * 방화벽 확인
+
+   * ```
+     $ sudo iptables -L --line-numbers
+     ```
+
 5. 초기설정
+
+   * 웹 인터페이스 접속
+
+   * ```
+     http://gitlab_domain_or_IP
+     ```
+   * 관리자 비밀번호 설정  
+     ![](/img/1-5-2.png)
+
+   * 1
 
 6. 
 
