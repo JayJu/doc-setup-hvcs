@@ -101,9 +101,10 @@
 
    * Account 이름 변경
 
-     * 
+     * Profile Setting &gt; Account -&gt; username 변경  
+       ![](/img/1-5-6.png)
 
-   * ㅂ
+   * ss
 
 6. 
 
