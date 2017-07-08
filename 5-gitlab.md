@@ -56,14 +56,12 @@
    * ```
      $ sudo vi /etc/iptables/rules.v4
      ```
-
    * rules.v4 에 아래 내용을 추가 후 저장/닫기
 
    * ```
      -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
      -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
      ```
-
    * 방화벽 재시작
 
    * ```
@@ -85,7 +83,13 @@
    * 관리자 비밀번호 설정  
      ![](/img/1-5-2.png)
 
-   * 1
+   * 관리자 로그인 \(root / 이전 설정한 비밀번호\)  
+     ![](/img/1-5-3.png)
+
+   * 관리자 프로파일 수정 \(Settings\)  
+     ![](/img/1-5-4.png)
+
+   * d
 
 6. 
 
