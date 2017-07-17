@@ -12,6 +12,7 @@
 * 기타
 * [1\) Spring Annotation](1-spring-annotation.md)
 * [2\) 예외처리](2-c608-c678-cc98-b9ac.md)
-* 3\) 비동기 처리
-* 4\) 메일발송
+* [3\) 비동기 처리](3-be44-b3d9-ae30-cc98-b9ac.md)
+* [4\) 메일발송](4-ba54-c77c-bc1c-c1a1.md)
+* [5\) 메일수신](5-ba54-c77c-c218-c2e0.md)
 
