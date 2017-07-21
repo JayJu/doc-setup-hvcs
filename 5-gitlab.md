@@ -104,9 +104,7 @@
      * Profile Setting &gt; Account -&gt; username 변경  
        ![](/img/1-5-6.png)
 
-   * ss
-
-6. 3
+6. 프로젝트 Import (GitLab.com -> GitLabCE)
 
 7. ㅇ
 
