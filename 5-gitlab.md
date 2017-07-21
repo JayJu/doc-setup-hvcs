@@ -106,6 +106,10 @@
 
    * ss
 
-6. 
+6. 3
+
+7. ㅇ
+
+* root 비밀번호 초기화 방법: [How to reset your root password](https://docs.gitlab.com/ce/security/reset_root_password.html)
 
 
