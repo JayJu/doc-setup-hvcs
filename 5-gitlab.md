@@ -105,9 +105,9 @@
        ![](/img/1-5-6.png)
 
 6. 프로젝트 Import (GitLab.com -> GitLabCE)
+  * [Integrate your server with GitLab.com](https://docs.gitlab.com/ee/integration/gitlab.html)
+7. root 비밀번호 초기화 방법
 
-7. ㅇ
-
-* root 비밀번호 초기화 방법: [How to reset your root password](https://docs.gitlab.com/ce/security/reset_root_password.html)
+  * [How to reset your root password](https://docs.gitlab.com/ce/security/reset_root_password.html)
 
 
