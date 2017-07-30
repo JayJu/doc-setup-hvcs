@@ -31,6 +31,18 @@
      ```
 3. 어플리케이션 서버
 4. DB 서버
+  * Jenkins
+  ```
+-A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 9000 -j ACCEPT
+```
+  * Gitlab
+  ```
+-A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+```
+  * Mariadb
+  ```
+-A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT
+```
 
 
 
