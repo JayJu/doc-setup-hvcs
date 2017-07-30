@@ -1,5 +1,9 @@
 # MariaDB 설치 및 환경구성
 
+* 참고문서
+    * [Installing and using MariaDB via Docker](https://mariadb.com/kb/en/mariadb/installing-and-using-mariadb-via-docker/)
+    
+    
 1. 도커 설치
     1) 다운로드 및 설치
        ```
@@ -34,25 +38,35 @@
          Experimental: false
         ```
 
-6. Jenkins 이미지 받기 및 컨테이너 시작
+2. MariaDB 설치
+    1) 이미지 다운로드
+    ```
+    $ docker search mariadb
+    $ docker pull mariadb:10.2.7
+    $ docker images
+        REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+        mariadb             10.2.7              afa0733d0c1b        3 days ago          387MB
+    ```
+    
+    2) 컨테이너 생성
+    ```
+    $ docker run --name mariadb-dev -e MYSQL_ROOT_PASSWORD=eoqkrskwk -d mariadb:10.2.7
+    $ docker ps -a
+        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+        8c16829635a9        mariadb:10.2.7      "docker-entrypoint..."   5 seconds ago       Up 4 seconds        3306/tcp            mariadb-dev
+    
+    ```
+    
+    3) 컨테이너 접속
+    ```
+    $ docker exec -it mariadb-dev bash
+    ```
+    
+    4) DB 접속
+    ```
+    $ mysql -uroot -p
+    
+    ``` 
+        
 
-    ```
-    docker run -p 8080:8080 -p 50000:50000 jenkinsci/jenkins:lts
-    ```
-
-7. Docker File 수정
-
-    ```
-    docker ps -a
-    docker images
-    docker start/stop 컨테이너이름
-    docker attach 컨테이너이름
-    ```
-
-8. 도커 빌드
-
-    ```
-    sudo mkdir /var/jenkins_home
-    docker build -t ubuntu-jenkins .
-    ```
 
