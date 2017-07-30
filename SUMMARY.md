@@ -2,12 +2,12 @@
 
 * [소개](README.md)
 * [1. 환경구성](chapter1.md)
-  * 01\) Jenkins](1-jenkins.md)
-  * 02\) OOS](2-oos.md)
-  * 03\) Media Server](3-media-server.md)
-  * 04\) Firewall](4-firewall.md)
-  * 05\) GitLab](5-gitlab.md)
-  * 06\) MariaDB
+  * [01\) Jenkins\]\(1-jenkins.md\)](chapter1/01-jenkins1-jenkinsmd.md)
+  * 02\) OOS\]\(chapter1/02-oos.md\)
+  * 03\) Media Server\]\(3-media-server.md\)
+  * 04\) Firewall\]\(4-firewall.md\)
+  * 05\) GitLab\]\(5-gitlab.md\)
+  * [06\) MariaDB](chapter1/06-mariadb.md)
 * [연관기술](c5f0-ad00-ae30-c220.md)
 * [1\) Chrome Extension](/2-1-chrome-extension.md)
 * 기타
