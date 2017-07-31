@@ -44,10 +44,7 @@
     $ vi /etc/apt/sources.list
     <아래 목록 추가>
     ```
-    >
-    > deb http://ftp.kr.debian.org/debian/ jessie main contrib non-free
-    >
-    
+
  
 2. MariaDB 설치
     1) mariadb dockerfile clone 및 Dockerfile 옮기기(10.2버전)
