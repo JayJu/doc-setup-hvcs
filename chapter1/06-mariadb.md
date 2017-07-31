@@ -56,7 +56,12 @@
     Successfully built 195c541182be
     Successfully tagged mariadb:10.2
     ```
-    
+    >**IWINV 서비스 사용 시 주의사항**
+    IWINV 가상서버 내 인스턴스 MTU를 1450으로 운영 중이며 docker 내 기본 MTU가 1500 이라면
+    (컨테이너 접속해서 ifconfig 로 확인 가능) 설치 시 apt-get update 등이 패킷사이즈 초과로 
+    실패하게 됨. 반드시 docker.service 파일 내 MTU를 1450으로 명기 해야 함. 
+    자세한 내용은 IWINV 기술 메뉴얼 참고.
+
     3) 이미지 정상결과 확인
     ```
     $ docker images
