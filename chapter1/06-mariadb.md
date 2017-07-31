@@ -37,8 +37,29 @@
          OS/Arch:      linux/amd64
          Experimental: false
         ```
-
+        
+2. apt-get repository 추가(for debian)
+    ```
+    $ su -
+    $ vi /etc/apt/sources.list
+    <아래 목록 추가>
+    ```
+    >
+    > deb http://ftp.kr.debian.org/debian/ jessie main contrib non-free
+    >
+    
+ 
 2. MariaDB 설치
+    1) mariadb dockerfile clone 및 Dockerfile 옮기기(10.2버전)
+    ```
+    $ cd ~
+    $ mkdir dockerfiles
+    $ cd dockerfiles/
+    $ git clone https://github.com/dockerfile/mariadb.git
+    $ cd mariadb
+    $ vi Dockerfile
+    ```
+3. MariaDB 설치
     1) 이미지 다운로드
     ```
     $ docker search mariadb
