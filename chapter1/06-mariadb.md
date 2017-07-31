@@ -38,24 +38,33 @@
          Experimental: false
         ```
         
-2. apt-get repository 추가(for debian)
-    ```
-    $ su -
-    $ vi /etc/apt/sources.list
-    <아래 목록 추가>
-    ```
-
- 
 2. MariaDB 설치
-    1) mariadb dockerfile clone 및 Dockerfile 옮기기(10.2버전)
+    1) Docker 파일 다운로드
+    [도커허브](https://hub.docker.com/_/mariadb/)에서 [10.2](https://github.com/docker-library/mariadb/blob/bcf4518ad93834454bcca8029444231bc044afa3/10.2/Dockerfile) 버전의 Docker 파일 다운로드
     ```
     $ cd ~
-    $ mkdir dockerfiles
-    $ cd dockerfiles/
-    $ git clone https://github.com/dockerfile/mariadb.git
-    $ cd mariadb
-    $ vi Dockerfile
+    $ mkdir -p dockerfiles/mariadb
+    $ cd dockerfiles/mariadb
+    $ vi Dockerfile <-- Dockerfile 내용 붙여넣고 저장
     ```
+
+    2) Docker Build
+    ```
+    $ docker build --tag mariadb:10.2 .
+    ...
+    Removing intermediate container 0a8ce649a53f
+    Successfully built 195c541182be
+    Successfully tagged mariadb:10.2
+    ```
+    
+    3) 이미지 정상결과 확인
+    ```
+    $ docker images
+    REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+    mariadb             10.2                195c541182be        21 minutes ago      387MB
+    debian              jessie              86baf4e8cde9        6 days ago          123MB
+    ```
+    
 3. MariaDB 설치
     1) 이미지 다운로드
     ```
