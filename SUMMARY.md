@@ -8,7 +8,7 @@
   * [04\) Firewall](chapter1/04-firewall.md)
   * [05\) GitLab](chapter1/05-gitlab.md)
   * [06\) MariaDB](chapter1/06-mariadb.md)
-* [연관기술](c5f0-ad00-ae30-c220.md)
+* [2. 연관기술](c5f0-ad00-ae30-c220.md)
   * [1\) Chrome Extension](chapter2/01-chrome-extension.md)
 * 기타
 * [1\) Spring Annotation](1-spring-annotation.md)
