@@ -77,10 +77,10 @@
     ```
         
     3) Post Script 생성
-    - config_mariadb.sh
     ```
     dd
     ```
+    
     4) Docker Build
     ```
     $ docker build --rm --tag mariadb:10.2 .
