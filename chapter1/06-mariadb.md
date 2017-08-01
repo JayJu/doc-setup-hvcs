@@ -2,6 +2,7 @@
 
 * 참고문서
     * [Installing and using MariaDB via Docker](https://mariadb.com/kb/en/mariadb/installing-and-using-mariadb-via-docker/)
+    * [Application running on Docker container – Part 2 – Database](https://blog.lysender.com/2015/10/application-running-on-docker-container-part-2-database/)
     
     
 1. 도커 설치
