@@ -37,8 +37,12 @@
          OS/Arch:      linux/amd64
          Experimental: false
         ```
-        
-2. MariaDB 설치
+
+2. 방화벽 설정
+    1) OS 방화벽 설정
+        * 환경구성 - Firewal 참고
+ 
+3. MariaDB Image 생성
     1) Docker 파일 다운로드
     [도커허브](https://hub.docker.com/_/mariadb/)에서 [10.2](https://github.com/docker-library/mariadb/blob/bcf4518ad93834454bcca8029444231bc044afa3/10.2/Dockerfile) 버전의 Docker 파일 다운로드
     ```
@@ -76,7 +80,7 @@
     CMD ["mysqld", "--user=mysql"]
     ```
         
-    3) Post Script 생성
+    3) Post Script 생성 ( config_mariadb.sh )
     ```
     #!/bin/bash
     
@@ -94,13 +98,13 @@
     
     __start_mysql() {
         echo "Running the start_mysql function."
-        mysqladmin -u root password eoqkrskwk
-        mysql -uroot -peoqkrskwk -e "CREATE DATABASE hvcsdb"
-        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON hvcsdb.* TO 'hvcs'@'localhost' IDENTIFIED BY 'eoqkrskwk!3'; FLUSH PRIVILEGES;"
-        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON hvcsdb.* TO 'hvcs'@'%' IDENTIFIED BY 'eoqkrskwk!3'; FLUSH PRIVILEGES;"
-        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON *.* TO 'hvcs'@'%' IDENTIFIED BY 'eoqkrskwk!3' WITH GRANT OPTION; FLUSH PRIVILEGES;"
-        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON *.* TO 'hvcs'@'%' IDENTIFIED BY 'eoqkrskwk!3' WITH GRANT OPTION; FLUSH PRIVILEGES;"
-        mysql -uroot -peoqkrskwk -e "select user, host FROM mysql.user;"
+        mysqladmin -u root password foobar
+        mysql -uroot -pfoobar -e "CREATE DATABASE hvcsdb"
+        mysql -uroot -pfoobar -e "GRANT ALL PRIVILEGES ON hvcsdb.* TO 'hvcs'@'localhost' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;"
+        mysql -uroot -pfoobar -e "GRANT ALL PRIVILEGES ON hvcsdb.* TO 'hvcs'@'%' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;"
+        mysql -uroot -pfoobar -e "GRANT ALL PRIVILEGES ON *.* TO 'hvcs'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+        mysql -uroot -pfoobar -e "GRANT ALL PRIVILEGES ON *.* TO 'hvcs'@'%' IDENTIFIED BY 'password' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+        mysql -uroot -pfoobar -e "select user, host FROM mysql.user;"
         killall mysqld
         sleep 10
     }
@@ -133,39 +137,39 @@
     debian              jessie              86baf4e8cde9        6 days ago          123MB
     ```
     
-3. MariaDB 설치
-    1) 이미지 다운로드
+4. 서비스 시작
+    1) 컨테이너 실행
     ```
-    $ docker search mariadb
-    $ docker pull mariadb:10.2.7
-    $ docker images
-        REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-        mariadb             10.2.7              afa0733d0c1b        3 days ago          387MB
+    $ docker run --name maria-dev -p 3306:3306 -e MYSQL_ROOT_PASSWORD=eoqkrskwk -d mariadb:10.2
+    $ docker logs maria-dev
     ```
     
-    2) 컨테이너 생성
+    2) 컨테이너 프로세스 확인
     ```
-    $ docker run --name mariadb-dev -e MYSQL_ROOT_PASSWORD=eoqkrskwk -d mariadb:10.2.7
     $ docker ps -a
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
-        8c16829635a9        mariadb:10.2.7      "docker-entrypoint..."   5 seconds ago       Up 4 seconds        3306/tcp            mariadb-dev
-    
+    CONTAINER ID        IMAGE               COMMAND                 CREATED             STATUS              PORTS                    NAMES
+    deda9ec45b88        mariadb:10.2        "mysqld --user=mysql"   4 minutes ago       Up 4 minutes        0.0.0.0:3306->3306/tcp   maria-dev
     ```
     
     3) 컨테이너 접속
     ```
-    $ docker exec -it mariadb-dev bash
+    $ docker exec -it maria-dev bash
     ```
     
     4) DB 접속
     ```
-    $ mysql -uroot -p
-    
+    $ mysql -uhvcs -p
+    ..
+    MariaDB [(none)]> show databases;
+    +--------------------+
+    | Database           |
+    +--------------------+
+    | hvcsdb             |
+    | information_schema |
+    +--------------------+
     ``` 
         
-3. 방화벽 설정
-    1) OS 방화벽 설정
-        * 환경구성 - Firewal 참고
+
     
 
 
