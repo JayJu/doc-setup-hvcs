@@ -76,7 +76,38 @@
     CMD ["mysqld", "--user=mysql"]
     ```
         
-    3) Docker Build
+    3) Post Script 생성
+    - config_mariadb.sh
+    ```
+    #!/bin/bash
+    __mysql_config() {
+        # Hack to get MySQL up and running... I need to look into it more.
+        echo "Running the mysql_config function."
+        #yum -y erase community-mysql community-mysql-server
+        #rm -rf /var/lib/mysql/ /etc/my.cnf
+        #yum -y install community-mysql community-mysql-server
+        mysql_install_db
+        chown -R mysql:mysql /var/lib/mysql
+        /usr/bin/mysqld_safe &
+        sleep 10
+    }
+    __start_mysql() {
+        echo "Running the start_mysql function."
+        mysqladmin -u root password eoqkrskwk
+        mysql -uroot -peoqkrskwk -e "CREATE DATABASE hvcsdb"
+        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON hvcsdb.* TO 'hvcs'@'localhost' IDENTIFIED BY 'eoqkrskwk!3'; FLUSH PRIVILEGES;"
+        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON hvcsdb.* TO 'hvcs'@'%' IDENTIFIED BY 'eoqkrskwk!3'; FLUSH PRIVILEGES;"
+        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON *.* TO 'hvcs'@'%' IDENTIFIED BY 'eoqkrskwk!3' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+        mysql -uroot -peoqkrskwk -e "GRANT ALL PRIVILEGES ON *.* TO 'hvcs'@'%' IDENTIFIED BY 'eoqkrskwk!3' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+        mysql -uroot -peoqkrskwk -e "select user, host FROM mysql.user;"
+        killall mysqld
+        sleep 10
+    }
+    # Call all functions
+    __mysql_config
+    __start_mysql
+    ```
+    4) Docker Build
     ```
     $ docker build --rm --tag mariadb:10.2 .
     ...
@@ -90,7 +121,7 @@
     실패하게 됨. 반드시 docker.service 파일 내 MTU를 1450으로 명기 해야 함. 
     자세한 내용은 IWINV 기술 메뉴얼 참고.
 
-    4) 이미지 정상결과 확인
+    5) 이미지 정상결과 확인
     ```
     $ docker images
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
