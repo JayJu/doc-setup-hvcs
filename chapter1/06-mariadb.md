@@ -3,6 +3,7 @@
 * 참고문서
     * [Installing and using MariaDB via Docker](https://mariadb.com/kb/en/mariadb/installing-and-using-mariadb-via-docker/)
     * [Application running on Docker container – Part 2 – Database](https://blog.lysender.com/2015/10/application-running-on-docker-container-part-2-database/)
+    * [Docker를 이용하여 MAIRADB BINARY 설치 가이드 문서](http://lahuman.jabsiri.co.kr/118)
     
     
 1. 도커 설치
@@ -63,6 +64,7 @@
     ..
     # Added configuration
     ADD ./config_mariadb.sh /scripts/config_mariadb.sh
+    ADD ./hvcs.cnf /etc/mysql/conf.d/hvcs.cnf
     RUN chmod 755 /scripts/config_mariadb.sh
     RUN /scripts/config_mariadb.sh
     
@@ -116,7 +118,22 @@
     
     ```
     
-    4) Docker Build
+    4) Custom cnf 생성 ( hvcs.cnf )
+    ```
+    [client]
+    default-character-set=utf8
+    
+    [mysql]
+    default-character-set=utf8
+    
+    [mysqld]
+    lower_case_table_names=1
+    collation-server=utf8_unicode_ci
+    init-connect='SET NAMES utf8'
+    character-set-server=utf8
+    ```
+    
+    5) Docker Build
     ```
     $ docker build --rm --tag mariadb:10.2 .
     ...
@@ -168,6 +185,14 @@
     | hvcsdb             |
     | information_schema |
     +--------------------+
+    MariaDB [(none)]> show variables like 'c%';
+    +--------------------------+----------------------------+
+    | Variable_name            | Value                      |
+    +--------------------------+----------------------------+
+    | character_set_client     | utf8                       |
+    | character_set_connection | utf8                       |
+    | character_set_database   | utf8                       |
+    ..
     ``` 
         
 
