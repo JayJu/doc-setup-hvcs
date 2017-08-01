@@ -47,10 +47,38 @@
     $ cd dockerfiles/mariadb
     $ vi Dockerfile <-- Dockerfile 내용 붙여넣고 저장
     ```
-
-    2) Docker Build
+    2) Dockerfile 수정
+    - 추가
+    ``` 
+    MAINTAINER Ju Hee Jin <iam@juheejin.com>
+    ENV TERM linux
+    ENV DEBIAN_FRONTEND noninteractive
+    ..
+    RUN mkdir /scripts
+    ..
+    # Added configuration
+    ADD ./config_mariadb.sh /scripts/config_mariadb.sh
+    RUN chmod 755 /scripts/config_mariadb.sh
+    RUN /scripts/config_mariadb.sh
+    
+    RUN apt-get update && apt-get install -y vim
     ```
-    $ docker build --tag mariadb:10.2 .
+    
+    - 제거
+    ```
+    # COPY docker-entrypoint.sh /usr/local/bin/
+    # RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
+    # ENTRYPOINT ["docker-entrypoint.sh"]
+    ```
+    
+    - 변경
+    ```
+    CMD ["mysqld", "--user=mysql"]
+    ```
+        
+    3) Docker Build
+    ```
+    $ docker build --rm --tag mariadb:10.2 .
     ...
     Removing intermediate container 0a8ce649a53f
     Successfully built 195c541182be
@@ -62,7 +90,7 @@
     실패하게 됨. 반드시 docker.service 파일 내 MTU를 1450으로 명기 해야 함. 
     자세한 내용은 IWINV 기술 메뉴얼 참고.
 
-    3) 이미지 정상결과 확인
+    4) 이미지 정상결과 확인
     ```
     $ docker images
     REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
