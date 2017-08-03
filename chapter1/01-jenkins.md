@@ -107,9 +107,12 @@
    * "Start using Jenkins"  
      ![](/img/1-1-5.jpg)![](/img/1-1-6.jpg)
 
-   * 1
 
-15. ㅇㅇ
+---
+
+# Jenkins - Gitlab 연동
+* 참고문서
+  * [Jenkins CI service](https://docs.gitlab.com/ee/integration/jenkins.html#configure-gitlab-users)
 
 
 
