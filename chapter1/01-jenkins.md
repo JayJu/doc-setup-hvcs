@@ -113,6 +113,7 @@
 # Jenkins - Gitlab 연동
 * 참고문서
   * [Jenkins CI service](https://docs.gitlab.com/ee/integration/jenkins.html#configure-gitlab-users)
+  * [gitlab-plusin intruction](https://github.com/jenkinsci/gitlab-plugin#using-it-with-a-job)
 
 
 
