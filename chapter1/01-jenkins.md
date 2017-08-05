@@ -120,12 +120,39 @@
   * 사용자 계정과 access token 생성
   ![](/img/ch1/sub1/1-1-7.png)
   
-  <img src="/img/ch1/sub1/1-1-7.png" width="50"  >
-  
 2. Jenkins 설정
   * 플러그인 설치
+    * [Gitlab](https://wiki.jenkins.io/display/JENKINS/GitLab+Plugin)
+    * [Javadoc](https://wiki.jenkins.io/display/JENKINS/Javadoc+Plugin)
+    * [Pipeline-jenkins2.x에 포함됨](https://wiki.jenkins.io/display/JENKINS/Pipeline+Plugin)
+  ![](/img/ch1/sub1/1-1-8.png)
+
   * GitLab 접근을 위한 credential 생성
+    Jenkins CI 가 build status를 GitLab API로 보내기 위한 설정
+    GibLab에서 생성한 사용자 access token을 등록
+    ![](/img/ch1/sub1/1-1-9.png)
+
   * GitLab connection 설정
+  ![](/img/ch1/sub1/1-1-10.png)
+  
+3. Jenkins Build Job 생성
+  GitLab의 mgerge request 를 처리할 job 생성
+  * 폴더 생성
+  ![](/img/ch1/sub1/1-1-11.png)
+
+  * 폴더 하위에 pipeline job 생성
+  ![](/img/ch1/sub1/1-1-12.png)
+  
+  * build triggers 하위에 "Build when a change is pushed to GitLab" 체크
+  * "Advenced.." 에 key generate..
+  ![](/img/ch1/sub1/1-1-13.png)
+
+  * Pipeline script 섹션에 ㅇㅏ래 스크립트 추가
+  
+
+  
+
+
 
 
 
