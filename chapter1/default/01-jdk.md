@@ -1,4 +1,4 @@
-# JDK 환경설정
+# JDK 설치 및 환경설정
 1. JDK 설치(version 8)
   ```
   $ sudo apt-get install software-properties-common
