@@ -31,12 +31,17 @@
      ```
      
 3. 어플리케이션 서버
-
-4. DB 서버
   * Jenkins
   ```
--A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 9000 -j ACCEPT
-```
+  -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 9000 -j ACCEPT
+  ```
+  * SonarQube
+  ```
+  -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 8000 -j ACCEPT
+  ```
+
+4. DB 서버
+
   * Gitlab
   ```
 -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT

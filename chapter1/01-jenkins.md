@@ -49,7 +49,7 @@
    * ```
      $ sudo vi /etc/default/jenkins
      // port 부분을 변경.
-     HTTP_PORT=8080 -> HTTP_PORT=9999
+     HTTP_PORT=8080 -> HTTP_PORT=9000
      ```
    * systemctl을 사용하여 Jenkins 시작
 
@@ -120,6 +120,7 @@
 * 참고문서
   * [Jenkins CI service](https://docs.gitlab.com/ee/integration/jenkins.html#configure-gitlab-users)
   * [gitlab-plusin intruction](https://github.com/jenkinsci/gitlab-plugin#using-it-with-a-job)
+  * [Gitlab Continuous Integration on Jenkins](http://blog.ljdelight.com/gitlab-continuous-integration-on-jenkins/)
   
 
 1. GitLab 설정
@@ -128,7 +129,8 @@
   
 2. Jenkins 설정
   * Global Tool Configuration 설정
-    
+  ![](/img/ch1/sub1/1-1-14.png)
+
   * 플러그인 설치
     * [Gitlab](https://wiki.jenkins.io/display/JENKINS/GitLab+Plugin)
     * [Javadoc](https://wiki.jenkins.io/display/JENKINS/Javadoc+Plugin)
