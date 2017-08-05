@@ -147,8 +147,42 @@
   * "Advenced.." 에 key generate..
   ![](/img/ch1/sub1/1-1-13.png)
 
-  * Pipeline script 섹션에 ㅇㅏ래 스크립트 추가
-  
+  * Pipeline script 섹션에 아래 스크립트 추가
+  ```
+    node() {
+      try {
+        // Pull the source and test a merge
+        checkout changelog: true, poll: true, scm: [
+        $class: 'GitSCM',
+        branches: [[name: "origin/${env.gitlabSourceBranch}"]],
+        doGenerateSubmoduleConfigurations: false,
+        extensions: [[
+        $class: 'PreBuildMerge',
+        options: [
+        fastForwardMode: 'FF',
+        mergeRemote: 'origin',
+        mergeStrategy: 'default',
+        mergeTarget: "${env.gitlabTargetBranch}"
+        ]
+        ]],
+        submoduleCfg: [],
+        userRemoteConfigs: [[
+        credentialsId: 'gitlab-jenkins-user-credentials',
+        name: 'origin',
+        url: "${env.gitlabSourceRepoHttpUrl}"
+        ]]
+        ]
+        
+        // Start the build
+        load "Jenkinsfile.common"
+        
+        } catch (Exception e) {
+          updateGitlabCommitStatus(name: 'build', state: 'failed')
+          addGitLabMRComment comment: "Something unexpected happened. Inspect Jenkins logs."
+          throw e
+        }
+      }
+  ```
 
   
 
