@@ -1,8 +1,8 @@
 # Summary
 
 * [소개](README.md)
-* [1. 환경구성](chapter1.md)
-  * [00\) 기본설정](chapter1/default/README.md)
+* [1. 환경구성](chapter1/README.md)
+  * [기본설정](chapter1/default/README.md)
     * [00\) 이것저것](chapter1/default/00-etc.md)
     * [01\) JDK](chapter1/default/01-jdk.md)
     * [02\) Gradle](chapter1/default/02-gradle.md)
@@ -12,10 +12,10 @@
   * [04\) Firewall](chapter1/04-firewall.md)
   * [05\) GitLab](chapter1/05-gitlab.md)
   * [06\) MariaDB](chapter1/06-mariadb.md)
-* [2. 연관기술](chapter2.md)
+* [2. 연관기술](chapter2/README.md)
   * [1\) Chrome Extension](chapter2/01-chrome-extension.md)
   * [2\) Docker](chapter2/02-docker.md)
-* [3. 기타](chapter3.md)
+* [3. 기타](chapter3/README.md)
   * [1\) Spring Annotation](chapter3/01-spring-annotation.md)
   * [2\) 예외처리](chapter3/02-exception.md)
   * [3\) 비동기 처리](chapter3/03-saync-process.md)
