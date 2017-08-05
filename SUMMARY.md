@@ -2,6 +2,10 @@
 
 * [소개](README.md)
 * [1. 환경구성](chapter1.md)
+  * [00\) 기본설정](chapter1/default/README.md)
+    * [00\) 이것저것](chapter1/default/00-etc.md)
+    * [01\) JDK](chapter1/default/01-jdk.md)
+    * [02\) Gradle](chapter1/default/02-gradle.md)
   * [01\) Jenkins](chapter1/01-jenkins.md)
   * [02\) OOS](chapter1/02-oos.md)
   * [03\) Media Server](chapter1/03-media-server.md)
