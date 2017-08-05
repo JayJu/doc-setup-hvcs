@@ -119,7 +119,8 @@
 1. GitLab 설정
   * 사용자 계정과 access token 생성
   ![](/img/ch1/sub1/1-1-7.png)
-  <img src="/img/ch1/sub1/1-1-7.png" width="100" height="100"/>
+  
+  <img src="/img/ch1/sub1/1-1-7.png" width="50"  >
   
 2. Jenkins 설정
   * 플러그인 설치
