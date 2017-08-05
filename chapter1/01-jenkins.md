@@ -4,7 +4,7 @@
 
    * Ubuntu 16.04.1
    * 참고자료: [How To Install Jenkins on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04)
-
+   
 2. JDK 설치
   * [JDK설치 및 환경설정](/chapter1/default/01-jdk.md)
   
@@ -127,6 +127,8 @@
   ![](/img/ch1/sub1/1-1-7.png)
   
 2. Jenkins 설정
+  * Global Tool Configuration 설정
+    
   * 플러그인 설치
     * [Gitlab](https://wiki.jenkins.io/display/JENKINS/GitLab+Plugin)
     * [Javadoc](https://wiki.jenkins.io/display/JENKINS/Javadoc+Plugin)
