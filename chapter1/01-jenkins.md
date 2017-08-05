@@ -96,16 +96,16 @@
      $ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
      ```
 
-     ![](/img/1-1-1.jpg)
+     ![](/img/ch1/sub1/1-1-1.jpg)
 
    * "Install suggested plusins" 선택  
-     ![](/img/1-1-2.jpg)
+     ![](/img/ch1/sub1/1-1-2.jpg)
 
    * 관리자 계정 생성 - 정보 입력 후 "Save and Finish"  
-     ![](/img/1-1-4.jpg)
+     ![](/img/ch1/sub1/1-1-4.jpg)
 
    * "Start using Jenkins"  
-     ![](/img/1-1-5.jpg)![](/img/1-1-6.jpg)
+     ![](/img/ch1/sub1/1-1-5.jpg)![](/img/ch1/sub1/1-1-6.jpg)
 
 
 ---
@@ -114,6 +114,9 @@
 * 참고문서
   * [Jenkins CI service](https://docs.gitlab.com/ee/integration/jenkins.html#configure-gitlab-users)
   * [gitlab-plusin intruction](https://github.com/jenkinsci/gitlab-plugin#using-it-with-a-job)
+  
 
+1. GitLab 설정
+  * 사용자 계정과 access token 생성
 
 

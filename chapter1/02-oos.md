@@ -61,22 +61,22 @@
       * OOS 상의 UNC URL 확인 - “[http://common-web/op/generate.aspx”](http://common-web/op/generate.aspx”) 로 이동 후 UNC Path를 입력하여 URL을 획득
 
       * OOS 서버를 추가  
-        ![](/img/1-2-6.jpg)
+        ![](/img/ch1/sub2/1-2-6.jpg)
 
       * “Computers”을 클릭하여 검색조건에 포함  
-        ![](/img/1-2-5.jpg)
+        ![](/img/ch1/sub2/1-2-5.jpg)
 
       * “Object Types…” 버튼을 클릭  
-        ![](/img/1-2-4.jpg)
+        ![](/img/ch1/sub2/1-2-4.jpg)
 
       * “Add” 버튼을 클릭  
-        ![](/img/1-2-3.jpg)
+        ![](/img/ch1/sub2/1-2-3.jpg)
 
       * “Share this folder”을 Check 후 “Permissions” 버튼을 클릭  
-        ![](/img/1-2-2.jpg)
+        ![](/img/ch1/sub2/1-2-2.jpg)
 
       * “Advanced Sharing..:” 버튼을 클릭  
-        ![](/img/1-2-1.jpg)
+        ![](/img/ch1/sub2/1-2-1.jpg)
 
       * 공유하고자 하는 폴더의 “Properties &gt; Sharing Tab”으로 이동
 
@@ -85,11 +85,11 @@
    * IIS 내에 Virtual Directory 구성
      * IIS 을 실행
      * 테스트를 위해 “hosting” Context를 사용. 아래와 같이 “Add Virtual Directory..”을 클릭하여 “oofs”폴더를 추가
-       ![](/img/1-2-7.jpg)
+       ![](/img/ch1/sub2/1-2-7.jpg)
    * OOS 상의 URL 확인- “[http://common-web/op/generate.aspx”](http://common-web/op/generate.aspx”) 로 이동 후 URL Path를 입력하여 URL을 획득
 
    * Create Link 클릭 후 Test this link 로 viewer 확인  
-     ![](/img/1-2-8.jpg)
+     ![](/img/ch1/sub2/1-2-8.jpg)
 
 
 

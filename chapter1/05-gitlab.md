@@ -33,7 +33,7 @@
      $ sudo apt-get install gitlab-ce
      ```
 
-     ![](/img/1-5-1.png)
+     ![](/img/ch1/sub5/1-5-1.png)
 
    * 서버 IP 확인 및 수정
 
@@ -87,13 +87,13 @@
      http://gitlab_domain_or_IP
      ```
    * 관리자 비밀번호 설정  
-     ![](/img/1-5-2.png)
+     ![](/img/ch1/sub5/1-5-2.png)
 
    * 관리자 로그인 \(root / 이전 설정한 비밀번호\)  
-     ![](/img/1-5-3.png)
+     ![](/img/ch1/sub5/1-5-3.png)
 
    * 관리자 프로파일 수정 \(Settings\)  
-     ![](/img/1-5-4.png)
+     ![](/img/ch1/sub5/1-5-4.png)
 
    * 이메일 업데이트 후 confirmation mail 확인
 
@@ -102,7 +102,7 @@
    * Account 이름 변경
 
      * Profile Setting &gt; Account -&gt; username 변경  
-       ![](/img/1-5-6.png)
+       ![](/img/ch1/sub5/1-5-6.png)
 
 6. 프로젝트 Import (GitLab.com -> GitLabCE)
   * [Integrate your server with GitLab.com](https://docs.gitlab.com/ee/integration/gitlab.html)
