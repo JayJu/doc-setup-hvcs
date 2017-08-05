@@ -22,6 +22,14 @@
    * ```
      # usermod -aG sudo jenkins
      ```
+  * gradle profile 추가
+  * ```
+  $ su - jenkins
+  $ vi ./.profile
+    ## gradle
+    PATH="/opt/gradle/gradle-4.0.2/bin:$PATH"
+  $ source ./.profile
+  ```
 
 5. Jenkins 설치\(jenkins로 로그인 후 진행\)
 
