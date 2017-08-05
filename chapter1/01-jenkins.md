@@ -121,6 +121,7 @@
   * [Jenkins CI service](https://docs.gitlab.com/ee/integration/jenkins.html#configure-gitlab-users)
   * [gitlab-plusin intruction](https://github.com/jenkinsci/gitlab-plugin#using-it-with-a-job)
   * [Gitlab Continuous Integration on Jenkins](http://blog.ljdelight.com/gitlab-continuous-integration-on-jenkins/)
+  * [Introduction to Continuous Integration with JHipster](http://blog.ippon.tech/continuous-integration-with-jhipster/)
   
 
 1. GitLab 설정
