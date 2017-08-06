@@ -229,15 +229,19 @@
     }
   ```
   
-4. GibLab Webhook 생성
-  * Pipeline Job 생성 단계의 URL과 generated Secret token 복사
+4. GibLab Webhook 생성 및 테스트
+  * GitLab Project > Setting > Integration
+  * Pipeline Job 생성 단계의 URL과 generated Secret token 복사/붙여넣기
+  * 트리거에 Merge Request events 체크 (Merge Request시에만 Jenkins build)
   ![](/img/ch1/sub1/1-1-16.png)
   
-5. 
-
+5. 연동테스트
+  * Release용 브랜치 생성
+  ![](/img/ch1/sub1/1-1-18.png)
   
-
-
-
-
-
+  * Master 브랜치에 변경배용 push 후 master -> release Merge Request 생성
+  ![](/img/ch1/sub1/1-1-19.png)
+  ![](/img/ch1/sub1/1-1-20.png)
+  
+  * Jenkins에서 Pipeline Job 수행 되는지 확인
+  ![](/img/ch1/sub1/1-1-21.png)
