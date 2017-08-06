@@ -76,7 +76,7 @@
 
 7. 방화벽 오픈
 
-   * 방화벽 정책 수정 - 8080포트 추가
+   * 방화벽 정책 수정 - 9000포트 추가
 
    * ```
      $ sudo vi /etc/iptables/rules.v4
@@ -162,45 +162,69 @@
   * 폴더 하위에 pipeline job 생성
   ![](/img/ch1/sub1/1-1-12.png)
   
-  * build triggers 하위에 "Build when a change is pushed to GitLab" 체크
+  * build triggers 섹션
+  * "Build when a change is pushed to GitLab CI.." 체크
   * "Advenced.." 에 key generate..
+  * 위 URL과 generated 된 Secret token으로  GitLab에서 Jenkins Webhook 생성해야함
   ![](/img/ch1/sub1/1-1-13.png)
 
-  * Pipeline script 섹션에 아래 스크립트 추가
+  * Pipeline 섹션
+  * Definition 에 "Pipeline script fro SCM" 선택
+  * SCM에 git 선택
+  * Repository URL에 git project 주소 입력
+  > Credential 에 GitLab에 API Token 생성 하여 입력 해야 되는데 add 가 안되는 
+  > 현상이 있음. 임시로 credential을 gitlab user/password form으로 생성하여 임시조치
+  * Branch에 master -> 이후 Release로 변경예정
+  * Script Path: Jenkinsfile -> 소스에 Jenkinsfile 을 생성해여 소스레벨에서 배포스크립트를 관리하는 방식으로 진행
   ```
-    node() {
-      try {
-        // Pull the source and test a merge
-        checkout changelog: true, poll: true, scm: [
-        $class: 'GitSCM',
-        branches: [[name: "origin/${env.gitlabSourceBranch}"]],
-        doGenerateSubmoduleConfigurations: false,
-        extensions: [[
-        $class: 'PreBuildMerge',
-        options: [
-        fastForwardMode: 'FF',
-        mergeRemote: 'origin',
-        mergeStrategy: 'default',
-        mergeTarget: "${env.gitlabTargetBranch}"
-        ]
-        ]],
-        submoduleCfg: [],
-        userRemoteConfigs: [[
-        credentialsId: 'gitlab-jenkins-user-credentials',
-        name: 'origin',
-        url: "${env.gitlabSourceRepoHttpUrl}"
-        ]]
-        ]
-        
-        // Start the build
-        load "Jenkinsfile.common"
-        
-        } catch (Exception e) {
-          updateGitlabCommitStatus(name: 'build', state: 'failed')
-          addGitLabMRComment comment: "Something unexpected happened. Inspect Jenkins logs."
-          throw e
+    #!/usr/bin/env groovy
+
+    node {
+        stage('checkout') {
+            checkout scm
         }
-      }
+
+        gitlabCommitStatus('build') {
+            stage('check java') {
+                sh "java -version"
+            }
+
+            stage('clean') {
+                sh "chmod +x gradlew"
+                sh "./gradlew clean --no-daemon"
+            }
+
+            stage('npm install') {
+                sh "./gradlew npmInstall -PnodeInstall --no-daemon"
+            }
+
+            stage('backend tests') {
+                try {
+                //    sh "./gradlew test -PnodeInstall --no-daemon"
+                } catch(err) {
+                    throw err
+                } finally {
+                //    junit '**/build/**/TEST-*.xml'
+                }
+            }
+
+            stage('frontend tests') {
+                try {
+                //    sh "./gradlew npm_test -PnodeInstall --no-daemon"
+                } catch(err) {
+                    throw err
+                } finally {
+                //    junit '**/build/test-results/karma/TESTS-*.xml'
+                }
+            }
+
+            stage('packaging') {
+            //    sh "./gradlew bootRepackage -x test -Pprod -PnodeInstall --no-daemon"
+                sh "./gradlew bootRepackage -Pdev -PnodeInstall --no-daemon"
+                archiveArtifacts artifacts: '**/build/libs/*.war', fingerprint: true
+            }
+        }
+    }
   ```
 
   
