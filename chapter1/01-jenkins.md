@@ -57,7 +57,7 @@
    * ```
      $ sudo vi /etc/default/jenkins
      // port 부분을 변경.
-     HTTP_PORT=8080 -> HTTP_PORT=9000
+     HTTP_PORT=8080 -> HTTP_PORT=7000
      ```
    * systemctl을 사용하여 Jenkins 시작
 
