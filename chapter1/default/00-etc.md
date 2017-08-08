@@ -6,4 +6,6 @@
 * iftop (network 모니터링)
     ```
     $ apt-get install iftop
+    $ su -
+    # chmod +s $(which iftop)
     ```
