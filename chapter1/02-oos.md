@@ -63,29 +63,29 @@
 
   2. 권한설정
 
-     * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
+    * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
 
-     * OOS 상의 UNC URL 확인 - “[http://common-web/op/generate.aspx”](http://common-web/op/generate.aspx”) 로 이동 후 UNC Path를 입력하여 URL을 획득
+    * OOS 상의 UNC URL 확인 - “[http://common-web/op/generate.aspx”](http://common-web/op/generate.aspx”) 로 이동 후 UNC Path를 입력하여 URL을 획득
 
-     * Properties > Security -> Edit > OOS 서버를 추가  
-       ![](/img/ch1/sub2/1-2-6.jpg)
+    * Properties > Security -> Edit > OOS 서버를 추가  
+      ![](/img/ch1/sub2/1-2-6.jpg)
 
-     * “Computers”을 클릭하여 검색조건에 포함  
-       ![](/img/ch1/sub2/1-2-5.jpg)
+    * “Object Types…” 버튼을 클릭  
+      ![](/img/ch1/sub2/1-2-4.jpg)
 
-     * “Object Types…” 버튼을 클릭  
-       ![](/img/ch1/sub2/1-2-4.jpg)
+    * “Computers”을 클릭하여 검색조건에 포함  
+      ![](/img/ch1/sub2/1-2-5.jpg)
 
-     * “Add” 버튼을 클릭  
-       ![](/img/ch1/sub2/1-2-3.jpg)
+    * “Add” 버튼을 클릭  
+      ![](/img/ch1/sub2/1-2-3.jpg)
 
-     * “Share this folder”을 Check 후 “Permissions” 버튼을 클릭  
-       ![](/img/ch1/sub2/1-2-2.jpg)
-
-     * “Advanced Sharing..:” 버튼을 클릭  
-       ![](/img/ch1/sub2/1-2-1.jpg)
-
-     * 공유하고자 하는 폴더의 “Properties &gt; Sharing Tab”으로 이동
+    * 공유하고자 하는 폴더의 “Properties &gt; Sharing Tab”으로 이동
+    
+    * “Advanced Sharing..:” 버튼을 클릭  
+      ![](/img/ch1/sub2/1-2-1.jpg)
+      
+    * “Share this folder”을 Check 후 “Permissions” 버튼을 클릭  
+      ![](/img/ch1/sub2/1-2-2.jpg)
 
 * URL 설정
 
