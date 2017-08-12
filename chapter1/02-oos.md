@@ -1,5 +1,7 @@
 # OOS \(Office Online Server\) 설치 및 환경구성
-
+* 참고자료
+  * [Office Online Server 설치](https://technet.microsoft.com/ko-kr/library/mt572054(v=exchg.150).aspx)
+  
 1. 설치환경
 
    * Windows Server 2008 R2 Standard SP1
@@ -7,7 +9,9 @@
 2. [VLSC\(Volume Licensing Service Center\)](https://www.microsoft.com/Licensing/servicecenter/default.aspx) 에서 OOS 다운로드
 
 3. 도메인 가입 \(AD JOIN\)
-
+  * 참고자료
+    * [Active Directory: 도메인 컨트롤러 무작정 설치하기](http://archmond.net/?p=671)
+    
 4. Windows 역할\(role\)과 서비스 추가 \(Win2008\)
 
    * admin 권한으로 파워 쉘 실행
@@ -33,7 +37,7 @@
 
    * http 환경으로 구성 할 경우
    * ```
-     PS>New-OfficeWebAppsFarm –InternalURL "http://common-web" -ExternalUrl "http://somo.hyundai-steel.com" –AllowHttp -EditingEnabled
+     PS>New-OfficeWebAppsFarm –InternalURL "http://common-web" -ExternalUrl "http://somo.hyundai-steel.com" –AllowHttp
      ```
    * https 환경으로 구성 할 경우
    * ```
@@ -91,5 +95,60 @@
    * Create Link 클릭 후 Test this link 로 viewer 확인  
      ![](/img/ch1/sub2/1-2-8.jpg)
 
+9. DRM 디렉토리 설정 - AP 서버
+  * sftp 전용 계정 생성
+  ```
+  # useradd drm -m -d /home/drm
+  # passwd drm
+  ```
+  * sftp 디렉토리 생성
+  ```
+  # mkdir -p /files/drm
+  # chmod -R 755 /files
+  ```
+  
+  * SFTP 사용 시 상위 디렉토리로 이동 못하도록 설정
+    * root 로 /etc/ssh/sshd_config 마지막에 아래 설정 추가
+    ```
+      ############ Setup by jay #############
+      # Subsystem sftp /usr/lib/openssh/sftp-server -> 주석처리
+      Subsystem sftp internal-sftp
+      # This section must be placed at the very end of sshd_config
+      # sftponly 그룹 생성하여 제약걸기
+      Match Group sftponly
+      ChrootDirectory %h
+      ForceCommand internal-sftp
+      AllowTcpForwarding no
+    ```
+    * 그룹생성
+    ```
+    # groupadd sftponly
+    ```
+    
+    * ftp 전용 계정의 shell 접근제한
+    ```
+    # usermod drm -g sftponly
+    # usermod drm -s /bin/false
+    # usermod drm -d /files/drm
+    ```
+    
+    * ssh 데몬 재시작
+    ```
+    # systemctl stop ssh
+    # systemctl status ssh
+    ```
+    
+  * ssh 로 로그인이 실패하는 지 확인
+  
+  * sftp 로그인 하여 디렉토리 이동제한 확인
+
+10. SSHFS 설정(OOS서버)
+  > OOS에서 AP서버의 drm 파일을 어떤 방식으로 접근해야 할지 고민이 필요함
+  > Ubuntu에서 Samba로 접근을 제공할지
+  > 아래 처럼 AP에 SFTP 구성을 하고 OOS에서 접근하는 방식으로 할지
+  
+  * AP(Ubuntu SFTP) -> OOS로 networkdrive 걸기
+    * [SFTPNetDrive 다운로드 및 설치](http://www.sftpnetdrive.com/download-thanks)
+  * SFTPNetDrive 연결 추가 및 테스트
 
 
