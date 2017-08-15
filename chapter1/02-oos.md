@@ -10,7 +10,12 @@
 
 * [VLSC\(Volume Licensing Service Center\)](https://www.microsoft.com/Licensing/servicecenter/default.aspx) 에서 OOS 다운로드
 
+* AD(Active Directory 구성)
+
 * 도메인 가입 \(AD JOIN\)
+> 주의사항
+> OOS 서버는 반드시 도메인의 일부여야 하나 도메인 컨트롤러에 설치하면 안됨(작동안함)
+> [설치 주의사항 및 요구사항](https://technet.microsoft.com/ko-kr/library/2e147f11-6f47-46bc-90bf-b2f179958d11#software)
 
   * 참고자료
     * [Active Directory: 도메인 컨트롤러 무작정 설치하기](http://archmond.net/?p=671)
