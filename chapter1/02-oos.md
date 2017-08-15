@@ -13,8 +13,8 @@
 * AD(Active Directory 구성)
 
 * 도메인 가입 \(AD JOIN\)
-> 주의사항
-> OOS 서버는 반드시 도메인의 일부여야 하나 도메인 컨트롤러에 설치하면 안됨(작동안함)
+> **주의사항**
+> OOS 서버는 반드시 도메인의 일부여야 하나 **도메인 컨트롤러에 설치하면 안됨**(작동안함)
 > [설치 주의사항 및 요구사항](https://technet.microsoft.com/ko-kr/library/2e147f11-6f47-46bc-90bf-b2f179958d11#software)
 
   * 참고자료
