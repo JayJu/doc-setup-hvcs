@@ -24,7 +24,7 @@
 
   * admin 권한으로 파워 쉘 실행
 
-  * 서버역할 과서비스 추가
+  * 서버역할 과 서비스 추가
 
     * win2008 의 경우
 
@@ -45,7 +45,7 @@
 
   * http 환경으로 구성 할 경우
   * ```
-    PS>New-OfficeWebAppsFarm –InternalURL "http://common-web" -ExternalUrl "http://somo.hyundai-steel.com" –AllowHttp
+    PS>New-OfficeWebAppsFarm –InternalURL "http://hvcs-oos" -ExternalUrl "http://hvcs-oos.hvcsd.com" –AllowHttp
     ```
   * https 환경으로 구성 할 경우
   * ```
@@ -87,9 +87,10 @@
     * Properties &gt; Security -&gt; Edit &gt; OOS 서버를 추가  
     ![](/img/ch1/sub2/1-2-6.jpg)
 
-    * OOS 상의 UNC URL 확인 - “[http://common-web/op/generate.aspx”](http://common-web/op/generate.aspx”) 로 이동 후 UNC Path를 입력하여 URL을 획득
-
-    * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
+    * OOS 상의 UNC URL 확인
+      * /etc/hosts 파일에 oos 서버 url 등록
+      * [http://hvcs-oos.hvcsd.com/op/generate.aspx](http://hvcs-oos.hvcsd.com/op/generate.aspx) 로 이동 후 UNC Path를 입력하여 URL을 획득
+      * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
 
 * URL 설정
 
@@ -97,7 +98,7 @@
     * IIS 을 실행
     * 테스트를 위해 “hosting” Context를 사용. 아래와 같이 “Add Virtual Directory..”을 클릭하여 “oofs”폴더를 추가
       ![](/img/ch1/sub2/1-2-7.jpg)
-  * OOS 상의 URL 확인- “[http://common-web/op/generate.aspx”](http://common-web/op/generate.aspx”) 로 이동 후 URL Path를 입력하여 URL을 획득
+  * OOS 상의 URL 확인- “[http://hvcs-oos.hvcsd.com/op/generate.aspx”](http://hvcs-oos.hvcsd.com/op/generate.aspx”) 로 이동 후 URL Path를 입력하여 URL을 획득
 
   * Create Link 클릭 후 Test this link 로 viewer 확인  
     ![](/img/ch1/sub2/1-2-8.jpg)
