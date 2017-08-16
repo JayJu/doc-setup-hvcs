@@ -191,7 +191,7 @@
    [global]
    unix charset = UTF-8
    
-   [Hvcs Share]
+   [HvcsShare]
    comment = share presentation files for hvcs
    browseable = yes
    path = /hvcs/files/conference
