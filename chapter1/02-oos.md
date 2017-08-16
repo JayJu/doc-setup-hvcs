@@ -10,12 +10,13 @@
 
 * [VLSC\(Volume Licensing Service Center\)](https://www.microsoft.com/Licensing/servicecenter/default.aspx) 에서 OOS 다운로드
 
-* AD(Active Directory 구성)
+* AD\(Active Directory 구성\)
 
 * 도메인 가입 \(AD JOIN\)
-> **주의사항**
-> OOS 서버는 반드시 도메인의 일부여야 하나 **도메인 컨트롤러에 설치하면 안됨**(작동안함)
-> [설치 주의사항 및 요구사항](https://technet.microsoft.com/ko-kr/library/2e147f11-6f47-46bc-90bf-b2f179958d11#software)
+
+  > **주의사항**  
+  > OOS 서버는 반드시 도메인의 일부여야 하나 **도메인 컨트롤러에 설치하면 안됨**\(작동안함\)  
+  > [설치 주의사항 및 요구사항](https://technet.microsoft.com/ko-kr/library/2e147f11-6f47-46bc-90bf-b2f179958d11#software)
 
   * 참고자료
     * [Active Directory: 도메인 컨트롤러 무작정 설치하기](http://archmond.net/?p=671)
@@ -67,30 +68,32 @@
      * 소스로 지정할 폴더 생성
 
   2. 권한설정
-    * 공유하고자 하는 폴더의 “Properties &gt; Sharing Tab”으로 이동
-    
-    * “Advanced Sharing..:” 버튼을 클릭
-    ![](/img/ch1/sub2/1-2-1.jpg)
-    
-    * “Share this folder”을 Check 후 “Permissions” 버튼을 클릭
-    ![](/img/ch1/sub2/1-2-2.jpg)
-   
-    * “Object Types…” 버튼을 클릭
-    ![](/img/ch1/sub2/1-2-4.jpg)
-    
-    * “Computers”을 클릭하여 검색조건에 포함  
-    ![](/img/ch1/sub2/1-2-5.jpg)
- 
-    * “Add” 버튼을 클릭
-    ![](/img/ch1/sub2/1-2-3.jpg)
 
-    * Properties &gt; Security -&gt; Edit &gt; OOS 서버를 추가  
-    ![](/img/ch1/sub2/1-2-6.jpg)
+     * 공유하고자 하는 폴더의 “Properties &gt; Sharing Tab”으로 이동
 
-    * OOS 상의 UNC URL 확인
-      * /etc/hosts 파일에 oos 서버 url 등록
-      * [http://hvcs-oos.hvcsd.com/op/generate.aspx](http://hvcs-oos.hvcsd.com/op/generate.aspx) 로 이동 후 UNC Path를 입력하여 URL을 획득
-      * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
+     * “Advanced Sharing..:” 버튼을 클릭  
+       ![](/img/ch1/sub2/1-2-1.jpg)
+
+     * “Share this folder”을 Check 후 “Permissions” 버튼을 클릭  
+       ![](/img/ch1/sub2/1-2-2.jpg)
+
+     * “Object Types…” 버튼을 클릭  
+       ![](/img/ch1/sub2/1-2-4.jpg)
+
+     * “Computers”을 클릭하여 검색조건에 포함  
+       ![](/img/ch1/sub2/1-2-5.jpg)
+
+     * “Add” 버튼을 클릭  
+       ![](/img/ch1/sub2/1-2-3.jpg)
+
+     * Properties &gt; Security -&gt; Edit &gt; OOS 서버를 추가  
+       ![](/img/ch1/sub2/1-2-6.jpg)
+
+     * OOS 상의 UNC URL 확인
+
+       * /etc/hosts 파일에 oos 서버 url 등록
+       * [http://hvcs-oos.hvcsd.com/op/generate.aspx](http://hvcs-oos.hvcsd.com/op/generate.aspx) 로 이동 후 UNC Path를 입력하여 URL을 획득
+       * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
 
 * URL 설정
 
@@ -167,5 +170,43 @@
 
   * SFTPNetDrive 연결 추가 및 테스트
 
+* Samba 설정
+  * filesystem 생성
+  ```
+  $ sudo mkdir -p /hvcs/files/conference
+  $ sudo chmod -R 755 /hvcs/files
+  ```
+  
+  * samba 설치 및 확인
+  ```
+  $ sudo apt-get install -y samba
+  $ sudo smbd --version
+  $ sudo systemctl status smdbd
+  $ sudo systemctl status nmbd
+  ```
+  
+  * 환경파일 설정
+  ```
+  $ sudo vi /etc/samba/smb.conf
+   [global]
+   unix charset = UTF-8
+   
+   [Hvcs Share]
+   comment = share presentation files for hvcs
+   browseable = yes
+   path = /hvcs/files/conference
+   guest ok = no
+   read only = yes
+   valid users = drm
+   create mask = 0700
+   directory mode = 0700
+   
+  $ sudo smbpasswd -a drm
+  ```
+  
+  * 서비스 재시작
+  ```
+  $ sudo systemctl restart smbd
+  ```
 
 
