@@ -171,42 +171,81 @@
   * SFTPNetDrive 연결 추가 및 테스트
 
 * Samba 설정
+
   * filesystem 생성
-  ```
-  $ sudo mkdir -p /hvcs/files/conference
-  $ sudo chmod -R 755 /hvcs/files
-  ```
-  
+
+    ```
+    $ sudo mkdir -p /hvcs/files/conference
+    $ sudo chmod -R 755 /hvcs/files
+    $ sudo usermod drm -d /hvcs/files/conference
+    ```
+
   * samba 설치 및 확인
-  ```
-  $ sudo apt-get install -y samba
-  $ sudo smbd --version
-  $ sudo systemctl status smdbd
-  $ sudo systemctl status nmbd
-  ```
-  
-  * 환경파일 설정
-  ```
-  $ sudo vi /etc/samba/smb.conf
-   [global]
-   unix charset = UTF-8
-   
-   [HvcsShare]
-   comment = share presentation files for hvcs
-   browseable = yes
-   path = /hvcs/files/conference
-   guest ok = no
-   read only = yes
-   valid users = drm
-   create mask = 0700
-   directory mode = 0700
-   
+
+    ```
+    $ sudo apt-get install -y samba
+    $ sudo smbd --version
+    $ sudo systemctl status smdbd
+    $ sudo systemctl status nmbd
+    ```
+
+  * 환경파일 설정  
+    \`\`\`  
+    $ sudo vi /etc/samba/smb.conf  
+    \[global\]  
+    unix charset = UTF-8
+
+    \[HvcsShare\]  
+    comment = share presentation files for hvcs  
+    browseable = yes  
+    path = /hvcs/files/conference  
+    guest ok = no  
+    read only = yes  
+    valid users = drm  
+    create mask = 0700  
+    directory mode = 0700
+
   $ sudo smbpasswd -a drm
+
   ```
-  
   * 서비스 재시작
   ```
-  $ sudo systemctl restart smbd
+
+  $ sudo systemctl restart samba
+
   ```
+  > ** Unit samba.service is masked.** 에러 발생 시 아래 조치
+  ```
+
+  $ sudo rm /lib/systemd/system/samba.service  
+  $ sudo systemctl start samba  
+  \`\`\`
+
+  * 방화벽 설정
+  
+    * 방화벽 정책 수정 - tcp:445,139 / udp:445,137,138 포트 추가
+    ```
+    $ sudo vi /etc/iptables/rules.v4
+    ```
+    
+    * rules.v4 에 아래 내용을 추가 후 저장/닫기
+    ```
+    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 139 -j ACCEPT
+    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 445 -j ACCEPT
+    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 137 -j ACCEPT
+    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 138 -j ACCEPT
+    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 445 -j ACCEPT
+    ```
+    
+    * 방화벽 재시작
+    ```
+    $ sudo netfilter-persistent reload
+    ```
+    
+    * 방화벽 확인
+    ```
+    $ sudo iptables -L --line-numbers
+    ```
+    
 
 

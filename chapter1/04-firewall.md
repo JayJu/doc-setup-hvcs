@@ -47,6 +47,14 @@
   ```
   -A RH-Firewall-1-INPUT -p tcp -m state --state NEW -m tcp --dport 8443 -j ACCEPT
   ```
+  * Samba
+  ```
+  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 139 -j ACCEPT
+  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 445 -j ACCEPT
+  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 137 -j ACCEPT
+  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 138 -j ACCEPT
+  -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 445 -j ACCEPT
+  ```
   
 4. DB 서버
 
