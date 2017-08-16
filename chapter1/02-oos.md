@@ -199,9 +199,9 @@
     comment = share presentation files for hvcs  
     browseable = yes  
     path = /hvcs/files/conference  
-    guest ok = no  
+    guest ok = yes  
     read only = yes  
-    valid users = drm  
+    #valid users = drm -> 주석처리해야함
     create mask = 0700  
     directory mode = 0700
 
@@ -222,30 +222,34 @@
   \`\`\`
 
   * 방화벽 설정
-  
+
     * 방화벽 정책 수정 - tcp:445,139 / udp:445,137,138 포트 추가
-    ```
-    $ sudo vi /etc/iptables/rules.v4
-    ```
-    
+
+      ```
+      $ sudo vi /etc/iptables/rules.v4
+      ```
+
     * rules.v4 에 아래 내용을 추가 후 저장/닫기
-    ```
-    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 139 -j ACCEPT
-    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 445 -j ACCEPT
-    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 137 -j ACCEPT
-    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 138 -j ACCEPT
-    -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 445 -j ACCEPT
-    ```
-    
+
+      ```
+      -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 139 -j ACCEPT
+      -A RH-Firewall-1-INPUT -s 220.230.125.71 -p tcp -m state --state NEW -m tcp --dport 445 -j ACCEPT
+      -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 137 -j ACCEPT
+      -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 138 -j ACCEPT
+      -A RH-Firewall-1-INPUT -s 220.230.125.71 -p udp -m state --state NEW -m udp --dport 445 -j ACCEPT
+      ```
+
     * 방화벽 재시작
-    ```
-    $ sudo netfilter-persistent reload
-    ```
-    
+
+      ```
+      $ sudo netfilter-persistent reload
+      ```
+
     * 방화벽 확인
-    ```
-    $ sudo iptables -L --line-numbers
-    ```
-    
+
+      ```
+      $ sudo iptables -L --line-numbers
+      ```
+
 
 
