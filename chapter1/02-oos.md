@@ -106,58 +106,7 @@
   * Create Link 클릭 후 Test this link 로 viewer 확인  
     ![](/img/ch1/sub2/1-2-8.jpg)
 
-* DRM 디렉토리 설정 - AP 서버
 
-  * sftp 전용 계정 생성
-    ```
-    # useradd drm -m -d /home/drm
-    # passwd drm
-    ```
-  * sftp 디렉토리 생성
-
-    ```
-    # mkdir -p /files/drm
-    # chmod -R 755 /files
-    ```
-
-  * SFTP 사용 시 상위 디렉토리로 이동 못하도록 설정
-
-    * root 로 /etc/ssh/sshd\_config 마지막에 아래 설정 추가
-      ```
-      ############ Setup by jay #############
-      # Subsystem sftp /usr/lib/openssh/sftp-server -> 주석처리
-      Subsystem sftp internal-sftp
-      # This section must be placed at the very end of sshd_config
-      # sftponly 그룹 생성하여 제약걸기
-      Match Group sftponly
-      ChrootDirectory %h
-      ForceCommand internal-sftp
-      AllowTcpForwarding no
-      ```
-    * 그룹생성
-
-      ```
-      # groupadd sftponly
-      ```
-
-    * ftp 전용 계정의 shell 접근제한
-
-      ```
-      # usermod drm -g sftponly
-      # usermod drm -s /bin/false
-      # usermod drm -d /files/drm
-      ```
-
-    * ssh 데몬 재시작
-
-      ```
-      # systemctl stop ssh
-      # systemctl status ssh
-      ```
-
-  * ssh 로 로그인이 실패하는 지 확인
-
-  * sftp 로그인 하여 디렉토리 이동제한 확인
 
 * SSHFS 설정\(OOS서버\)
 
