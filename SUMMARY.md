@@ -7,6 +7,8 @@
     * [01\) JDK](chapter1/default/01-jdk.md)
     * [02\) Gradle](chapter1/default/02-gradle.md)
     * [03\) NPM](chapter1/default/03-node-npm.md)
+    * [04\) SFTP](chapter1/default/04-sftp.md)
+    * [05\) Samba](chapter1/default/05-samba.md)
   * [유틸리티](chapter1/utility/README.md)
     * [01\) Tmux](chapter1/utility/01-tmux.md)
     * [02\) Tig](chapter1/utility/02-tig.md)
