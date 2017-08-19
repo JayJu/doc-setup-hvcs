@@ -90,7 +90,7 @@
        * [http://hvcs-oos.hvcsd.com/op/generate.aspx](http://hvcs-oos.hvcsd.com/op/generate.aspx) 로 이동 후 UNC Path를 입력하여 URL을 획득
        * 위의 획득한 URL이 아래처럼 정상적으로 출력됨을 확인
 
-7. [Samba설정\(공유디렉토리\)](chapter1/default/05-samba.md)
+7. [Samba설정\(공유디렉토리\)](default/05-samba.md)
 
 8. URL 설정
   1) IIS 내에 Virtual Directory 구성
