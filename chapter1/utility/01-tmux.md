@@ -6,7 +6,7 @@
         * 세션 생성
         * 세션명 변경: tmux rename-session [-t current-name] [new-name]
 3. Tmux Util
-    1. Tmuxinator
+    1) Tmuxinator
         * gem > ruby > tmuxinator 설치
         ```
         $ sudo apt-get install gem 

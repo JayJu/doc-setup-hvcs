@@ -1,17 +1,17 @@
 # Jenkins 설치 및 환경구성
 
-1. 설치환경
-
-   * Ubuntu 16.04.1
-   * 참고자료: [How To Install Jenkins on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04)
+  * 설치환경
+    * Ubuntu 16.04.1
+    * 참고자료: [How To Install Jenkins on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04)
    
-2. JDK 설치
+---
+1. JDK 설치
   * [JDK설치 및 환경설정](/chapter1/default/01-jdk.md)
   
-3. Gradle 설치
+2. Gradle 설치
   * [Gradle 설치 및 환경설정](/chapter1/default/02-gradle.md)
 
-4. 사용자 추가 및 권한 설정
+3. 사용자 추가 및 권한 설정
 
    * 사용자 추가
    * ```
@@ -31,7 +31,7 @@
   $ source ./.profile
   ```
 
-5. Jenkins 설치\(jenkins로 로그인 후 진행\)
+4. Jenkins 설치\(jenkins로 로그인 후 진행\)
 
    * 레파지토리 키 등록
    * ```
@@ -50,7 +50,7 @@
      $ sudo apt-get install jenkins
      ```
 
-6. Jenkins 시작
+5. Jenkins 시작
 
    * 포트변경
 
@@ -74,7 +74,7 @@
           Docs: man:systemd-sysv-generator(8)
      ```
 
-7. 방화벽 오픈
+6. 방화벽 오픈
 
    * 방화벽 정책 수정 - 9000포트 추가
 
@@ -97,7 +97,7 @@
      $ sudo iptables -L
      ```
 
-8. Jenkins 기본 설정
+7. Jenkins 기본 설정
 
    * Jenkins 접속
 
