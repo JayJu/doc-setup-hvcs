@@ -96,12 +96,12 @@
   1) IIS 내에 Virtual Directory 구성
     * IIS 을 실행
     * 테스트를 위해 “hosting” Context를 사용. 아래와 같이 “Add Virtual Directory..”을 클릭하여 “oofs”폴더를 추가
-      ![](/img/ch1/sub2/1-2-7.jpg)
+      ![](/img/ch1/sub2/1-2-7.png)
       
   2) OOS 상의 URL 확인
     * “[http://hvcs-oos.hvcsd.com/op/generate.aspx”](http://hvcs-oos.hvcsd.com/op/generate.aspx”) 로 이동 후 URL Path를 입력하여 URL을 획득
     * Create Link 클릭 후 Test this link 로 viewer 확인  
-      ![](/img/ch1/sub2/1-2-8.jpg)
+      ![](/img/ch1/sub2/1-2-8.png)
      
 9. 방화벽 설정
   1) 방화벽 정책 수정 - tcp:445,139 / udp:445,137,138 포트 추가
