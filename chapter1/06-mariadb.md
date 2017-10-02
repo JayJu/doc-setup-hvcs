@@ -159,25 +159,30 @@
     ```
     
 4. 서비스 시작
-    1) 컨테이너 실행
+    1) volume 설정 - data 저장소를 외부로 지정
     ```
-    $ docker run --name maria-dev -p 3306:3306 -e MYSQL_ROOT_PASSWORD=eoqkrskwk -d mariadb:10.2
+    $ docker run --name maria-data -v /hvcs_data mariadb:10.2 true
+    ```
+    2) volume으로 컨테이너 생성/실행
+    ```
+    $ docker run --name maria-dev -p 3306:3306 -e MYSQL_ROOT_PASSWORD=eoqkrskwk -d --volumes-from=maria-data mariadb:10.2
     $ docker logs maria-dev
     ```
     
-    2) 컨테이너 프로세스 확인
+    3) 컨테이너 프로세스 확인
     ```
     $ docker ps -a
     CONTAINER ID        IMAGE               COMMAND                 CREATED             STATUS              PORTS                    NAMES
     deda9ec45b88        mariadb:10.2        "mysqld --user=mysql"   4 minutes ago       Up 4 minutes        0.0.0.0:3306->3306/tcp   maria-dev
     ```
     
-    3) 컨테이너 접속
+    4) 컨테이너 접속
     ```
     $ docker exec -it maria-dev bash
+    $ data --> KST Timezone 확인
     ```
     
-    4) DB 접속
+    5) DB 접속
     ```
     $ mysql -uhvcs -p
     ..
