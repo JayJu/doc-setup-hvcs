@@ -63,6 +63,8 @@
     ..
     RUN mkdir /scripts
     ..
+    RUN echo "Asia/Seoul" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
+    ..
     # Added configuration
     ADD ./config_mariadb.sh /scripts/config_mariadb.sh
     ADD ./hvcs.cnf /etc/mysql/conf.d/hvcs.cnf
