@@ -77,6 +77,14 @@
   ```
   $ ./tpcc_start -h127.0.0.1 -dtpcc1000 -uroot -p "eoqkrskwk" -w20 -c16 -r10 -l600 > ./tpcc-output-ps-bpool-2048.log
   ```
-  
 4. 테스트결과 데이터 파일 생성
+  * log 파일 변환
+  ```
+  $ cd scripts
+  
+  ```
 5. 결과그래프 생성
+  * 라이브러리 설치
+  ```
+  $ sudo apt-get install gnuplot
+  ```
