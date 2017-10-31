@@ -2,6 +2,11 @@
 
 > ### TPC-C 란?
 
+* 참고자료
+  * [Simple usage steps and how to build graphs with gnuplot](https://www.percona.com/blog/2013/07/01/tpcc-mysql-simple-usage-steps-and-how-to-build-graphs-with-gnuplot)
+
+
+
 1. 소프트웨어 설치
   * Percona Server
     * 레파지토리 패키지 다운로드
