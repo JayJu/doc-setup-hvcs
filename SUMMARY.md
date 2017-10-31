@@ -28,4 +28,5 @@
   * [3\) 비동기 처리](chapter3/03-saync-process.md)
   * [4\) 메일발송](chapter3/04-sendmail.md)
   * [5\) 메일수신](chapter3/05-spring-integration.md)
+  * [6\) TPC-C 측정방법(chapter3/06-tpcc.md)
 
