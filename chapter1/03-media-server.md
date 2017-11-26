@@ -67,6 +67,11 @@
   stunServerPort=19302
   ```
 7. 방화벽 포트 오픈
+  * firewall-cmd 설치
+  ```
+  $ sudo yum install firewalld
+  $ sudo systemctl start firewalld
+  ```
   * UDP 포트 오픈
   ```
   $ sudo firewall-cmd --zone=public --permanent --add-port=49152-65535/udp
