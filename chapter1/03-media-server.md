@@ -75,7 +75,7 @@
   * UDP 포트 오픈
   ```
   $ sudo firewall-cmd --zone=public --permanent --add-port=49152-65535/udp
-  $ sudo firewall-cmd --zone=public --permanent --add-port=8888/tco
+  $ sudo firewall-cmd --zone=public --permanent --add-port=8888/tcp
   $ sudo systemctl reload firewalld
   ```
 8. 서비스 시작/종료
