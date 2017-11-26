@@ -29,52 +29,56 @@
   
   * repository package 설치
   ```
-  # sudo yum install https://get.pkgs.cloud/release.rpm -y
+  $ sudo yum install https://get.pkgs.cloud/release.rpm -y
   ```
   * 사용가능한 repository package 확인
   ```
-  # yum --disablerepo="*" --enablerepo="pkgs.cloud" list available
+  $ yum --disablerepo="*" --enablerepo="pkgs.cloud" list available
   ```
 
 4. 확장 패키지 설치
   * epel package 설치
   ```
-  # sudo yum install epel-release -y
-  # yum repolist
-  # yum update
+  $ sudo yum install epel-release -y
+  $ yum repolist
+  $ yum update
   ```
 5. Kurento 패키지 & KMS 설치
   * Kurento package 설치
   ```
-  # sudo vi /etc/yum/pluginconf.d/search-disabled-repos.conf
-  ## notify_only=0 (1 -> 0 으로 변경)
-  # sudo vi /etc/yum.conf
-  ## gpgcheck=0 (1 -> 0 으로 변경)
-  # yum clean metadata
-  # sudo yum erase gstreamer1 -y
-  # sudo yum install kurento-release -y
-  # sudo yum install kms-6.6.3 -y
+  $ sudo yum install kurento-release -y
+  $ sudo yum install kms-6.6.3 -y
   ```
-
-
-
-
-
-3. 사용자 추가 및 권한 설정
-
-   * 사용자 추가
-   * ```
-     # useradd jenkins -m -d /home/jenkins
-     # passwd jenkins
-     ```
-   * sudoer 등록
-   * ```
-     # usermod -aG sudo jenkins
-     ```
-  * gradle profile 추가
-  * ```
-  $ su - jenkins
-  $ vi ./.profile
-    ## gradle
-    PATH="/opt/gradle/gradle-4.0.2/bin:$PATH"
-  $ source ./.profile
+  * 추가 패키지 설치(필요시)
+  ```
+  $ sudo yum install kms-filters-chroma -y
+  $ sudo yum install kms-filters-crowddetector -y
+  $ sudo yum install kms-filters-platedetector -y
+  $ sudo yum install kms-filters-pointerdetector -y
+  ```
+6. STUN 서버 등록
+  * 설정파일 위치: ``` /etc/kurento ```
+  * 공개 STUN 서버 목록
+    * https://gist.github.com/zziuni/3741933
+  * STUN 서버 등록
+  ```
+  $ sudo vi /etc/kurento/modules/kurento/WebRtcEndpoint.conf.ini
+  stunServerAddress=74.125.23.127
+  stunServerPort=19302
+  ```
+7. 방화벽 포트 오픈
+  * UDP 포트 오픈
+  ```
+  $ sudo firewall-cmd --zone=public --permanent --add-port=49152-65535/udp
+  $ sudo systemctl reload firewalld
+  ```
+8. 서비스 시작/종료
+  ``` 
+  $ sudo systemctl enable kms.service
+  $ sudo systemctl start kms.service
+  $ sudo systemctl restart kms.service
+  ``` 
+9. 로그 확인
+  * 로그파일 위치
+    * ``` /var/log/kurento ```
+    * ``` /etc/sysconfig/kms ```
