@@ -1,4 +1,4 @@
-# Kurento Media Server 설치 및 환경구성 for Redhat 7
+# Kurento Media Server 설치 및 환경구성 for CentOS 7
 
   * 설치환경
     * RHEL 7.4
@@ -41,7 +41,7 @@
   ```
   $ sudo yum install epel-release -y
   $ yum repolist
-  $ yum update
+  $ sudo yum update
   ```
 5. Kurento 패키지 & KMS 설치
   * Kurento package 설치
