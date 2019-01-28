@@ -40,7 +40,16 @@
          OS/Arch:      linux/amd64
          Experimental: false
         ```
-
+    5) 서비스 등록
+      ```
+      $ sudo systemctl enable docker.service
+      ```
+    6) 서비스 시작 및 확인
+      ```
+      $ sudo systemctl start docker.service
+      $ sudo systemctl status docker.service
+      ```
+    
 2. 방화벽 설정
     1) OS 방화벽 설정
         * 환경구성 - Firewal 참고
